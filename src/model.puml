@@ -1,0 +1,64 @@
+@startuml
+'https://plantuml.com/class-diagram
+class Calendar
+class Notes
+class Meetings
+class Contacts
+abstract class ContactList
+
+
+Calendar <|-- Notes
+Calendar <|-- Meetings
+Calendar <|-- Contacts
+Calendar <|-- Diagnosis
+
+ContactList <|-- Contacts
+
+class Calendar {
+id
+Notes
+Meetings
+Contacts
+Diagnosis
+size()
+}
+
+class Notes {
+id
+Calendar id
+Date date
+Contacts id
+Title string
+}
+
+class Meetings {
+id
+Calendar id
+Date date
+Object string
+}
+
+class Contacts {
+id
+Calendar id
+firstname string
+name string
+mail string
+phone string
+}
+
+class Diagnosis {
+}
+
+enum Date {
+YEAR
+MONTH
+DAY
+}
+enum TimeUnit {
+DAYS
+HOURS
+MINUTES
+}
+
+@enduml
