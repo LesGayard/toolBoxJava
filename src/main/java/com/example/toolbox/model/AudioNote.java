@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import scala.math.Numeric;
+
+import javax.sound.sampled.AudioFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -22,4 +24,5 @@ public class AudioNote {
     @OneToMany
     @JoinColumn(name = "note_pk")
     private List<Note> notes;
+
 }
