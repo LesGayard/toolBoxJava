@@ -1,4 +1,4 @@
-package com.example.toolbox.model
+package com.example.toolbox.dto
 
 import java.io.Serializable
 import java.util.*
