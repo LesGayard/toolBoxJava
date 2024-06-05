@@ -8,7 +8,7 @@ import java.io.File;
 
 @Setter
 @Getter
-public class Audio{
+public class AudioRecord{
     public void init() throws Exception{
         AudioFormat audioFormat = new AudioFormat(96000,16,4,true,true);
         DataLine.Info infoTargetDataLine = new DataLine.Info(TargetDataLine.class,audioFormat);
@@ -19,11 +19,11 @@ public class Audio{
         File outputFile = new File("src/main/resources/outPutFile.wav");
 
         AudioSystem.write(new AudioInputStream(targetLine),AudioFileFormat.Type.WAVE,outputFile);
-        Thread.sleep(36000);
+        Thread.sleep(360);
         targetLine.stop();
         targetLine.close();
     }
 
-    public Audio() throws LineUnavailableException {
+    public AudioRecord() throws LineUnavailableException {
     }
 }
