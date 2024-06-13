@@ -19,7 +19,7 @@ public class Meeting {
     private Long meetingId;
     private String firstname;
     private Date date;
-    private String object;
+    private String title;
 
 
 }

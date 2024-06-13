@@ -1,16 +1,10 @@
 package com.example.toolbox.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.Date;
-import java.util.List;
 
-@Setter
-@Getter
-@ToString
 @Entity
 @Table(name = "calendar")
 public class Calendar {

@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.File;
 import java.util.Date;
 import java.util.List;
 
@@ -20,7 +21,9 @@ public class WrittenNote {
     private Long writtenNoteId;
     private int id;
     private Date date;
+    private String title;
     private String content;
+    private File file;
     @OneToMany
     @JoinColumn(name = "note_pk")
     private List<Note> notes;
