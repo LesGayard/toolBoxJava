@@ -39,7 +39,7 @@ public class WrittenNotesService {
     public WrittenNote saveOrUpdate(WrittenNote input) throws IOException{
         WrittenNote note = new WrittenNote();
         logger.info("note must be null : " + note.toString());
-        if(note.getWrittenNoteId() == null){
+        if(!noteRepository.existsById(input.getWrittenNoteId())){
             note = saveNote(input);
             logger.info("Return new note : " + note.toString());
         }else {
@@ -51,8 +51,7 @@ public class WrittenNotesService {
     private WrittenNote saveNote(WrittenNote note) throws IOException {
         logger.info("Input to save: " + note.toString());
         WrittenNote toSave = new WrittenNote();
-        logger.info("must be null : " + toSave.toString());
-
+        logger.info("must be null : " + toSave.getWrittenNoteId());
         toSave.setDate(new Date());
         toSave.setTitle(note.getTitle());
         toSave.setContent(note.getContent());
@@ -66,7 +65,7 @@ public class WrittenNotesService {
     private WrittenNote updateNote(WrittenNote note) throws IOException{
         logger.info("Entity to Update : " + note.toString());
         noteRepository.findById(note.getWrittenNoteId());
-        logger.info("Entity id : " + note.getId());
+        logger.info("Entity id : "+ note.getWrittenNoteId());
         noteRepository.saveAndFlush(note);
         logger.info("File Creation :");
         /* TO DO CREATE UPDATE FILE */
@@ -79,7 +78,7 @@ public class WrittenNotesService {
         noteRepository.delete(input);
         try {
             noteRepository.findById(input.getWrittenNoteId());
-            logger.info("Must be not find NULL : " + input.getId());
+           logger.info("NOT FOUND : " + input.getWrittenNoteId());
         }catch (Exception e){
             logger.error("Entity Success deletion : " + e.getLocalizedMessage());
         }
@@ -109,8 +108,6 @@ public class WrittenNotesService {
         }
         return bufferedWriter;
     }
-
-
 
 
 }

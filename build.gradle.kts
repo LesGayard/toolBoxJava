@@ -6,13 +6,13 @@ plugins {
     id("org.hibernate.orm") version "6.5.2.Final"
     id("org.graalvm.buildtools.native") version "0.10.2"
     id("org.asciidoctor.jvm.convert") version "3.3.2"
+    kotlin("jvm")
 }
 
 group = "com.example"
 version = "0.0.1-SNAPSHOT"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
 }
 
 configurations {
@@ -85,6 +85,7 @@ dependencies {
     testImplementation("org.testcontainers:postgresql")
     testImplementation("org.testcontainers:r2dbc")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 dependencyManagement {
@@ -121,3 +122,6 @@ hibernate {
     }
 }
 
+kotlin {
+    jvmToolchain(17)
+}

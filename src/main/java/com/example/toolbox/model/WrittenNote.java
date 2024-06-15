@@ -19,7 +19,6 @@ public class WrittenNote {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "written_note_pk", nullable = false)
     private Long writtenNoteId;
-    private int id;
     private Date date;
     private String title;
     private String content;

@@ -5,10 +5,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
+import java.util.List;
 
 @Repository
 public interface AudioNoteRepository extends JpaRepository<AudioNote,Long> {
-    Date findAllByDateOrderByDateDesc();
+    List<Date> findAllByDateOrderByDateDesc();
     AudioNote findAudioNoteByContent(String content);
     Date findAudioNoteByDateContaining(Date date);
 

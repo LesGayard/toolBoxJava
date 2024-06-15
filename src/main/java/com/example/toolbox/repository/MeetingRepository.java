@@ -14,7 +14,7 @@ public interface MeetingRepository extends JpaRepository<Meeting,Long> {
     List<Meeting>findAllByDateOrderByDateDesc();
     Long findMeetingsByMeetingId(Long id);
     /* TO DO: SEARCH IN THE STRING DYNAMIC */
-    Meeting findMeetingByTitle(String title);
 
+    Meeting findMeetingsByDateMatchesRegex(Date date);
     long deleteByMeetingId(@NonNull Long meetingId);
 }

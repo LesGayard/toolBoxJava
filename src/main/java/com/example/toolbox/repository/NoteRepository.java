@@ -2,7 +2,6 @@ package com.example.toolbox.repository;
 
 import com.example.toolbox.model.AudioNote;
 import com.example.toolbox.model.Note;
-import com.example.toolbox.model.WrittenNote;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import scala.collection.immutable.List;
@@ -16,10 +15,11 @@ public interface NoteRepository extends JpaRepository<Note,Long> {
     Note getNoteByDate(Date date);
 
     Note getNoteByNoteId(Long id);
-    List<AudioNote> getAllByAudioNotesOrderByDateDateDesc();
+    java.util.List<Note> getAllByAudioNotesOrderByDateDateDesc();
     AudioNote getNoteByAudioNotesAndTitle(String title);
-    List<WrittenNote> getAllByWrittenNotesOrderByDateDateDesc();
-    WrittenNote getNoteByWrittenNotesAndTitle(String title);
+    java.util.List<Note> getAllByWrittenNotesOrderByDateDateDesc();
+    Note getNoteByWrittenNotesAndTitleMatchesRegex(String input);
+   /* WrittenNote getNoteByWrittenNotesAndTitle(String title);*/
 
 
 }
